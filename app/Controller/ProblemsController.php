@@ -49,12 +49,11 @@ class ProblemsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Problem->create();
-			if ($this->Problem->save($this->request->data)) {
-				return $this->flash(__('The problem has been saved.'), array('action' => 'index'));
+			if ($newProblem = $this->Problem->save($this->request->data)) {
+                $this->set('response', $newProblem);
+                $this->set('_serialize', 'response');
 			}
 		}
-		$users = $this->Problem->User->find('list');
-		$this->set(compact('users'));
 	}
 
 /**
