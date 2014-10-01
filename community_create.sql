@@ -1,7 +1,7 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Script type: create
 -- Scope: [tables, references, sequences, views, procedures]
--- Generated at Wed Oct 01 02:01:29 UTC 2014
+-- Generated at Wed Oct 01 02:06:45 UTC 2014
 
 
 
@@ -69,7 +69,7 @@ CREATE INDEX idx_1 ON problems (id);
 -- Table: users
 CREATE TABLE users (
     id int    NOT NULL  AUTO_INCREMENT,
-    email varchar(50)    NOT NULL ,
+    username varchar(50)    NOT NULL ,
     password varchar(50)    NOT NULL ,
     name varchar(40)    NOT NULL ,
     CONSTRAINT users_pk PRIMARY KEY (id)
