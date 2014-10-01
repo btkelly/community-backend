@@ -54,7 +54,8 @@ class CommentsController extends AppController {
 			}
 		}
 		$users = $this->Comment->User->find('list');
-		$this->set(compact('users'));
+		$events = $this->Comment->Event->find('list');
+		$this->set(compact('users', 'events'));
 	}
 
 /**
@@ -77,7 +78,8 @@ class CommentsController extends AppController {
 			$this->request->data = $this->Comment->find('first', $options);
 		}
 		$users = $this->Comment->User->find('list');
-		$this->set(compact('users'));
+		$events = $this->Comment->Event->find('list');
+		$this->set(compact('users', 'events'));
 	}
 
 /**

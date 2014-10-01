@@ -1,7 +1,7 @@
 -- Created by Vertabelo (http://vertabelo.com)
 -- Script type: create
 -- Scope: [tables, references, sequences, views, procedures]
--- Generated at Wed Oct 01 02:06:45 UTC 2014
+-- Generated at Wed Oct 01 03:46:28 UTC 2014
 
 
 
@@ -13,6 +13,7 @@ CREATE TABLE comments (
     user_id int    NOT NULL ,
     message varchar(500)    NOT NULL ,
     time timestamp    NOT NULL ,
+    event_id int    NOT NULL ,
     CONSTRAINT comments_pk PRIMARY KEY (id)
 );
 
