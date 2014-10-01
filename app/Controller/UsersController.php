@@ -22,8 +22,8 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 0;
-		$this->set('data', $this->paginate());
-        $this->set('_serialize', array('data'));
+		$this->set('response', $this->paginate());
+        $this->set('_serialize', array('response'));
 	}
 
 /**
