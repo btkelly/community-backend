@@ -32,9 +32,9 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    public function beforeRender()
+    public function beforeFilter()
     {
-        parent::beforeRender();
+        parent::beforeFilter();
         $this->render(`/Pages/json`);
     }
 
