@@ -35,7 +35,8 @@
  * how to customize the loading of plugin routes.
  */
 	CakePlugin::routes();
-    
+
+    Router::parseExtensions('json');
     Router::mapResources('recipes');
     Router::parseExtensions();
 
