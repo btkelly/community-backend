@@ -22,7 +22,8 @@ class CommentsController extends AppController {
  */
 	public function index() {
 		$this->Comment->recursive = 0;
-		$this->set('comments', $this->Paginator->paginate());
+        $this->set('response', $this->paginate());
+        $this->set('_serialize', array('response'));
 	}
 
 /**
@@ -48,13 +49,11 @@ class CommentsController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Comment->create();
-			if ($this->Comment->save($this->request->data)) {
-				return $this->flash(__('The comment has been saved.'), array('action' => 'index'));
+			if ($newComment = $this->Comment->save($this->request->data)) {
+                $this->set('response', $newComment);
+                $this->set('_serialize', 'response');
 			}
 		}
-		$users = $this->Comment->User->find('list');
-		$events = $this->Comment->Event->find('list');
-		$this->set(compact('users', 'events'));
 	}
 
 /**
