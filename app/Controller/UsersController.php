@@ -14,7 +14,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'RequestHandler');
+	public $components = array('RequestHandler');
 
 /**
  * index method
@@ -23,7 +23,8 @@ class UsersController extends AppController {
  */
 	public function index() {
 		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+		$this->set('users', $this->paginate());
+        $this->set('_serialize', array('users'));
 	}
 
 /**
