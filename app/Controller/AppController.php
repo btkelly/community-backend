@@ -32,21 +32,21 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-    protected $response;
+    protected $responseData;
 
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->response = "Error";
+        $this->$responseData = "Error";
     }
 
-    protected function setResponse() {
-        $this->set('response', $this->response);
+    protected function returnResponse() {
+        $this->set('response', $this->$responseData);
         $this->set('_serialize', 'response');
     }
 
-    protected function setResponseArray() {
-        $this->set('response', $this->response);
+    protected function returnResponseArray() {
+        $this->set('response', $this->$responseData);
         $this->set('_serialize', array('response'));
     }
 }

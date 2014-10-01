@@ -23,7 +23,7 @@ class ProblemsController extends AppController {
  */
 	public function index() {
 		$this->Problem->recursive = 0;
-        $this->setResponseArray($this->paginate());
+        $this->returnResponseArray($this->paginate());
 	}
 
 /**
@@ -52,7 +52,7 @@ class ProblemsController extends AppController {
             $this->response = $newProblem;
         }
 
-        $this->setResponse();
+        $this->returnResponse();
 	}
 
 /**
