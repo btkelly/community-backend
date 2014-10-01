@@ -4,7 +4,6 @@ App::uses('AppController', 'Controller');
  * Comments Controller
  *
  * @property Comment $Comment
- * @property PaginatorComponent $Paginator
  * @property RequestHandlerComponent $RequestHandler
  */
 class CommentsController extends AppController {
@@ -14,7 +13,7 @@ class CommentsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'RequestHandler');
+	public $components = array('RequestHandler');
 
 /**
  * index method
