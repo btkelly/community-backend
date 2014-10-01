@@ -14,7 +14,7 @@ class ProblemsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'RequestHandler');
+	public $components = array('RequestHandler');
 
 /**
  * index method
@@ -23,7 +23,7 @@ class ProblemsController extends AppController {
  */
 	public function index() {
 		$this->Problem->recursive = 0;
-		$this->set('problems', $this->Paginator->paginate());
+        $this->setResponseArray($this->paginate());
 	}
 
 /**
@@ -47,13 +47,12 @@ class ProblemsController extends AppController {
  * @return void
  */
 	public function add() {
-		if ($this->request->is('post')) {
-			$this->Problem->create();
-			if ($newProblem = $this->Problem->save($this->request->data)) {
-                $this->set('response', $newProblem);
-                $this->set('_serialize', 'response');
-			}
-		}
+        $this->Problem->create();
+        if ($newProblem = $this->Problem->save($this->request->data)) {
+            $this->response = $newProblem;
+        }
+
+        $this->setResponse();
 	}
 
 /**
