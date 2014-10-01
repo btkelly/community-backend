@@ -37,7 +37,7 @@
 	CakePlugin::routes();
 
     Router::parseExtensions('json');
-    Router::mapResources('recipes');
+    Router::mapResources(array('problems', 'comments', 'events'));
     Router::parseExtensions();
 
 /**
